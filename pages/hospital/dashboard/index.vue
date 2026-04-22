@@ -12,7 +12,8 @@ import {
 } from '@element-plus/icons-vue'
 
 definePageMeta({
-  layout: 'admin',
+  layout: 'hospital',
+  middleware: ['authenticated', 'dashboard-redirect-global'],
 })
 
 import { useDashboardStore } from '~/store/dashboard.js'

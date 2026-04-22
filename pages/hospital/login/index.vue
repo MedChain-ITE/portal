@@ -1,10 +1,10 @@
 <script setup>
 import { useAuthStore } from '~/store/auth.js'
 import { ref } from 'vue'
-import { useCookies } from 'vue3-cookies'
 
 definePageMeta({
   layout: 'auth',
+  middleware: ['redirect-if-authenticated']
 })
 
 useSeoMeta({
@@ -15,23 +15,18 @@ useSeoMeta({
 
 const authStore = useAuthStore()
 const { login } = authStore
-const { cookies } = useCookies()
 
-const id = ref('')
+const email = ref('')
+const password = ref('')
 
 const googleLoginUrl = () => {
-  navigateTo('/admin/login')
+  window.location.href = `https://api.jorngka.online/auth/google`
 }
 
 const handleLogin = async () => {
   try {
-    //clear all cookies
-    cookies.remove('access_token')
-    cookies.remove('user')
-    cookies.remove('tokenType')
-
-    await login({ id: id.value })
-    navigateTo('/hospital/dashboard')
+    // await login({ email: email.value, password: password.value })
+    navigateTo('/admin/dashboard')
   } catch (error) {
     console.error('Login failed:', error)
   }
@@ -43,22 +38,10 @@ const handleLogin = async () => {
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
     <div class="relative w-full max-w-md p-6 bg-white rounded-lg shadow-lg animate-slide-up z-10">
-      <h1 class="text-3xl font-bold text-center mb-4">Welcome Back</h1>
-      <p class="text-center text-gray-500 mb-6">Login to your account</p>
-
-      <el-form @submit.prevent="handleLogin" label-position="top" class="space-y-4">
-        <el-form-item label="ID" class="w-full">
-          <el-input v-model="id" placeholder="Enter your ID" clearable class="w-full" />
-        </el-form-item>
-
-        <div class="flex justify-between items-center mt-1">
-          <el-button type="primary" class="w-full h-10 rounded-lg" native-type="submit">Login</el-button>
-        </div>
-      </el-form>
-
-      <div class="mt-4 text-center">
-        <p class="text-sm text-gray-500 mb-2">Or Login as Admin</p>
-        <el-button type="danger" class="w-full h-10 rounded-lg" @click="googleLoginUrl">Admin Login</el-button>
+      <h1 class="text-3xl font-bold text-center mb-4">Welcome Back Admin</h1>
+      <p class="text-center text-gray-500 mb-6">Login to your system</p>
+      <div class="flex justify-between items-center mt-1">
+        <el-button type="primary" class="w-full h-10 rounded-lg" @click="navigateTo('/admin/dashboard')">Login</el-button>
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@ const activeSubmenu = ref(null)
 const activeItem = ref('Dashboard') // Track active item
 
 const menuItems = [
-  { icon: House, label: 'Dashboard', to: '/admin/dashboard' },
+  { icon: House, label: 'Dashboard', to: '/hospital/dashboard' },
   // { icon: Coin, label: 'Interest Rate', to: '/admin/interest-rate' },
   // {
   //   icon: Money,
@@ -44,11 +44,10 @@ const menuItems = [
   //   ]
   // },
   // { icon: TrendCharts, label: 'Credit Score', to: '/admin/credit-score' },
-  { icon: User, label: 'Patient Management', to: '/admin/patient-management' },
-  { icon: Document, label: 'Hospital Management', to: '/admin/hospital-management' },
-  // { icon: Setting, label: 'Settings', to: '/admin/settings' },
+  { icon: User, label: 'Patient Management', to: '/hospital/patient-management' },
+  // { icon: Setting, label: 'Settings', to: '/hospital/settings' },
   // { icon: Warning, label: 'Activity Log', to: '/admin/activity-log', class: 'mt-4 border-t border-gray-200 pt-2' },
-  { icon: SwitchButton, label: 'Logout', to: '/admin/logout', class: 'mt-4 border-t border-gray-200 pt-2' }
+  { icon: SwitchButton, label: 'Logout', to: '/hospital/logout', class: 'mt-4 border-t border-gray-200 pt-2' }
 ]
 
 const toggleSubmenu = (label) => {

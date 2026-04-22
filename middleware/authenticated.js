@@ -5,8 +5,8 @@ export default defineNuxtRouteMiddleware(async () => {
   if (!token) {
     return navigateTo('/login')
   }
-
-  if (!user || user.phone_verified_at === null) {
-    return navigateTo('/unverified') // Redirect if not verified
-  }
+  //
+  // if (!user || user.phone_verified_at === null) {
+  //   return navigateTo('/unverified') // Redirect if not verified
+  // }
 })

@@ -84,20 +84,12 @@ onBeforeUnmount(() => {
     <div class="hidden md:flex items-center gap-4">
       <Locale class="mr-2" />
       <el-button
-        v-if="!user"
         @click="navigate('/login', 'login')"
         type="primary"
         class="!rounded-full !px-6 !py-2 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0"
       >
         Login / Register
       </el-button>
-      <el-image
-        v-if="user && user.profile && user.profile.image"
-        :src="user.profile.image"
-        class="w-10 h-10 rounded-full border-2 border-primary-600 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0"
-        @click="navigate('/dashboard')"
-        fit="contain"
-        />
     </div>
 
     <!-- Mobile Menu Button -->

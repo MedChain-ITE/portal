@@ -3,7 +3,7 @@ import BaseService from './BaseService'
 let instance = null
 class DashboardService extends BaseService {
   constructor() {
-    super('borrower')
+    super('admin')
   }
 
   static getInstance() {

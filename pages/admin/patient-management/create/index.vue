@@ -118,7 +118,7 @@ const submitForm = () => {
 
 // ================= ACTIONS =================
 const cancel = () => router.back()
-const goToList = () => router.push('/admin/patient')
+const goToList = () => router.push('/admin/patient-management')
 
 const copyToken = (token) => {
   navigator.clipboard.writeText(token)
